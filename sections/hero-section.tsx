@@ -16,7 +16,12 @@ export const Hero = () => {
       <p className="text-[#A3A3A3] mt-5">
         Want to talk or get a live demo? <span className="text-[#525252]">Get in touch →</span>
       </p>
-     <div className="absolute top-32">
+
+     <div className="absolute top-32 -z-10">
+      <div className="absolute z-10">
+
+         <BackgroundFull />
+      </div>
          <Background/>
      </div>
     </div>
