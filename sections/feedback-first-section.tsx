@@ -1,99 +1,125 @@
-
 "use client";
 import { PlayButton } from "@/components/svg";
 import { Add, Photo1, Photo2, Photo3 } from "@/components/svg/feedback";
 import { cn } from "@/lib/util/cn";
+import { motion } from "motion/react";
 import { h1 } from "motion/react-client";
 
 import * as React from "react";
 
 type FeedbackDataItem = {
-  photo: React.ReactNode,
-  name: string,
-  status: Status
-}
+  photo: React.ReactNode;
+  name: string;
+  status: Status;
+};
 const FeedbackData: FeedbackDataItem[] = [
   {
     photo: <Photo1 />,
     name: "Buzz Usborne",
-    status: "Done"
+    status: "Done",
   },
   {
     photo: <Photo2 />,
     name: "Gabriel Valdivia",
-    status: "Pending"
+    status: "Pending",
   },
   {
     photo: <Photo3 />,
     name: "Jochem Dierx",
-    status: "Requested"
+    status: "Requested",
   },
-]
+];
 export const FeedbackFirstSection = () => {
   const [toggle, setToggle] = React.useState<boolean>(false);
-  const [sendFeedback , setSendFeedback] = React.useState<boolean>(false);
+  const [sendFeedback, setSendFeedback] = React.useState<boolean>(false);
   return (
     <div className="h-[653px] flex items-center justify-center mx-auto ">
-      <div className="w-[358px] h-[380px] bg-[#171717] rounded-3xl mx-auto ">
+      <div className="md:w-[300px] lg:w-[358px] h-[380px] bg-[#171717] rounded-3xl mx-auto ">
         {/* <Feedback /> */}
 
-
-        {
-          sendFeedback ? <div className="flex justify-between items-center mt-5 mx-5 h-fit text-white  flex-col gap-5 ">
-            <input placeholder="enter your feedback" className="h-40 w-full border border-[#ffffff5a] text-center rounded-xl" />
-            <button className="bg-[#FB432C] rounded-[39px] w-35 h-11 text-white" onClick={()=> setTimeout(()=>{
-              setSendFeedback(false)
-            } , 1000)}>
+        {sendFeedback ? (
+          <motion.div
+            layout
+            className="flex justify-between items-center mt-5 mx-5 h-fit text-white  flex-col gap-5 "
+          >
+            <input
+              placeholder="enter your feedback"
+              className="h-40 w-full border border-[#ffffff5a] text-center rounded-xl"
+            />
+            <button
+              className="bg-[#FB432C] rounded-[39px] w-35 h-11 text-white cursor-pointer"
+              onClick={() =>
+                setTimeout(() => {
+                  setSendFeedback(false);
+                }, 1000)
+              }
+            >
               Send feedback
             </button>
 
-             {
-               
-              sendFeedback ? "" : <span className="text-[13.88px] text-white">Sended</span>
-
-             } 
-          </div> : <div className="">
+            {sendFeedback ? (
+              ""
+            ) : (
+              <span className="text-[13.88px] text-white">Sended</span>
+            )}
+          </motion.div>
+        ) : (
+          <motion.div className="" layout>
             <div className="flex justify-between items-center mt-5 mx-5">
               <h1 className="text-[18.33px] text-white">
                 Looking for feedback?
               </h1>
-              <button className={cn("bg-[#FB432C] rounded-[39px] w-9 h-5  relative", toggle && "bg-[#171717] border border-[#ffffff5a] ")} onClick={() => setToggle((prev) => !prev)}>
-                {
-                  toggle ? <div className="rounded-full left-0.5 top-[1.5px] size-4 absolute bg-white"></div> : <div className="rounded-full right-0.5 top-0.5 size-4 absolute bg-white"></div>
-                }
-              </button>
+              <motion.button
+                layout
+                className={cn(
+                  "bg-[#FB432C] rounded-[39px] w-9 h-5  relative cursor-pointer",
+                  toggle && "bg-[#171717] border border-[#ffffff5a] ",
+                )}
+                onClick={() => setToggle((prev) => !prev)}
+              >
+                {toggle ? (
+                  <div className="rounded-full left-0.5 top-[1.5px] size-4 absolute bg-white"></div>
+                ) : (
+                  <div className="rounded-full right-0.5 top-0.5 size-4 absolute bg-white"></div>
+                )}
+              </motion.button>
             </div>
 
             <div className="mx-5 mt-7 mb-10">
-              {
-                FeedbackData.map((el , id) => {
-                  return (
-
-                    <FeedbackDiv key={id} photo={el.photo} name={el.name} status={el.status} />
-                  )
-                })
-              }
-              <div className="flex gap-5 items-center h-18.75  cursor-pointer" onClick={()=>setSendFeedback(true)}>
-                <button className="bg-[#FB432C] rounded-full size-11.5 text-white flex items-center justify-center hover:scale-105" >
+              {FeedbackData.map((el, id) => {
+                return (
+                  <FeedbackDiv
+                    key={id}
+                    photo={el.photo}
+                    name={el.name}
+                    status={el.status}
+                  />
+                );
+              })}
+              <div
+                className="flex gap-5 items-center h-18.75  cursor-pointer px-2"
+                onClick={() => setSendFeedback(true)}
+              >
+                <button className="bg-[#FB432C] rounded-full size-11.5 text-white flex items-center justify-center hover:scale-105 cursor-pointer">
                   <Add />
                 </button>
-                <span className="text-[13.88px] font-semibold text-[#FD4E26] font-semibold">Add More</span>
+                <span className="text-[13.88px] font-semibold text-[#FD4E26] font-semibold">
+                  Add More
+                </span>
               </div>
             </div>
-          </div>
-        }
-
-
+          </motion.div>
+        )}
       </div>
 
       <div className="">
-        <button className="bg-[#FB432C] rounded-[100px] w-[94px] h-11 text-white">
+        <button className="bg-[#FB432C] rounded-[100px] w-[94px] h-11 text-white text-center">
           Feedback
         </button>
-        <h1 className="w-[560px] text-[54px]  font-[600] text-balance">
+        <h1 className="md:w-[200px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-[600] text-balance">
           Better feedback at the right time.
         </h1>
-        <p className="text-[18px] text-[#5F6980] w-[500px] ">
+        <p className="text-[18px] text-[#5F6980] md:w-[300px] lg:w-[500px] ">
           Campsite has been instrumental in keeping designers aware of each
           others' work-in-progress in a way that was previously slowing us down.
           It's also one of the only channels where.
@@ -108,22 +134,19 @@ export const FeedbackFirstSection = () => {
   );
 };
 
-
 type Status = "Pending" | "Done" | "Requested";
 type FeedbackProps = {
-  status: Status,
-  photo: React.ReactNode,
-  name: string
-}
+  status: Status;
+  photo: React.ReactNode;
+  name: string;
+};
 
 export const FeedbackDiv = ({ photo, name, status }: FeedbackProps) => {
   return (
-    <div className="flex items-center justify-between border-b border-[#FFFFFF0D] h-[74px]">
-      {
-        photo
-      }
+    <div className="flex items-center justify-between border-b border-[#FFFFFF0D] h-[74px] hover:bg-[#FFFFFF0D] px-2">
+      {photo}
       <h1 className="text-white text-[13.88px]">{name}</h1>
       <p className="text-[#9D9FA1] text-[13px]">{status}</p>
     </div>
-  )
-}
+  );
+};

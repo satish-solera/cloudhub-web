@@ -128,8 +128,8 @@ export const HeroSVG  = (props: IconProps)=>( <svg width="1440" height="958" vie
 
 
 
-export const ApiCheck = () =>(
-  <motion.svg width="650" height="456" viewBox="0 0 650 456" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const ApiCheck = ({width , height} : {width : number , height: number}) =>(
+  <motion.svg width={width} height={height} viewBox="0 0 650 456" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_1_1459)">
 <rect x="59.0292" y="53.1262" width="531" height="337" rx="24" fill="#171717"/>
 <rect width="529" height="42" transform="translate(60.0292 54.1262)" fill="#313131"/>

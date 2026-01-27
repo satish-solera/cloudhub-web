@@ -49,15 +49,15 @@ const CardData = [
 
 export const FeedbackSecondSection = () => {
     return (
-        <div className="h-[900px] bg-[#FB432C] text-center pt-20">
+        <div className="md:h-[1100px] lg:h-[900px] bg-[#FB432C] text-center pt-20">
             <p className="text-[16px] text-white">Best time here</p>
             <h1 className="font-[600] text-[54px] text-white">
                 Better feedback at the right time.
             </h1>
 
             {/* first section */}
-            <div className="bg-[#111111] h-[358px] w-[1150px] mx-auto mt-20 rounded-[24px]">
-                <div className="w-[1068px] bg-[#222222] h-[280px] mx-auto rounded-[20px]">
+            <div className="bg-[#111111] h-[358px] md:w-[600px] lg:w-[1150px] mx-auto mt-20 rounded-[24px]">
+                <div className="max-w-6xl lg:w-[1068px] bg-[#222222] h-[280px] mx-auto rounded-[20px]">
                     {/* first section */}
                     <div className="flex justify-between items-center mx-auto pt-10 px-10">
                         <div className="flex gap-5">
@@ -93,7 +93,7 @@ export const FeedbackSecondSection = () => {
             </div>
 
             {/* second section with 3 card */}
-            <div className="grid grid-cols-3 mt-3 w-[1150px] mx-auto">
+            <div className="grid grid-cols-3 mt-3 md:w-[620px] lg:w-[1150px] mx-auto">
                {
                 CardData.map((el , id)=>{
                     return(
@@ -120,7 +120,7 @@ export const PhotoDiv = ({
 
 export const InfoCard = ({ logo, title, paragraph }: { logo: React.ReactNode, title: string, paragraph: string }) => {
     return (
-        <div className="bg-[#111111] w-[376px] h-[173px] rounded-[24px] ">
+        <div className="bg-[#111111] md:w-[200px] lg:w-[376px] md:h-[300px] lg:h-[173px] rounded-[24px] ">
             <div className="flex flex-col items-start mt-5 mx-10">
                 {
                     logo
