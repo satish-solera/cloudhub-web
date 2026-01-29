@@ -1,9 +1,18 @@
+"use client";
+import { useWindowSize } from "@/hooks/window-size-detector";
 import { Background, BackgroundFull } from "@/components/svg/hero";
 
 export const Hero = () => {
+
+  const width= useWindowSize();
+
+   const isMobile = width < 640;
+   const isTablet = width >= 640 && width < 1024;
+   const isDesktop = width >= 1024;
+
   return (
     <div className="mx-auto flex justify-center flex-col items-center text-center mt-28 w-fit">
-      <h1 className="font-semibold text-[50px] lg:text-[60px]">
+      <h1 className="font-semibold text-[50px] lg:text-[60px] leading-tight">
         Create, inspect, and apply <br /> synthetic surveillance broadly.
       </h1>
       <p className="text-[18px] font-medium text-[#5F5F5F]">
@@ -23,14 +32,14 @@ export const Hero = () => {
           {/* lg svg */}
          {/* <BackgroundFull  width={1280} height={703}/> */}
          {/* md svg */}
-         <BackgroundFull  width={700} height={700}/>
+         <BackgroundFull  width={ isDesktop ? 1280 : 700} height={700}/>
          {/* <BackgroundFull  width={1280} height={703}/> */}
       </div>
       {/* lg svg */}
          {/* <Background width={1440} height={701}/> */}
 
          {/* md svg */}
-         <Background width={700} height={701}/>
+         <Background width={ isDesktop ? 1440 : 800} height={701}/>
          {/* <Background width={1440} height={701}/> */}
      </div>
     </div>

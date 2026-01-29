@@ -1,9 +1,9 @@
 "use client";
-import { PlayButton } from "@/components/svg";
+import { Check, PlayButton } from "@/components/svg";
 import { Add, Photo1, Photo2, Photo3 } from "@/components/svg/feedback";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/util/cn";
-import { motion } from "motion/react";
-import { h1 } from "motion/react-client";
+import { motion, useAnimate } from "motion/react";
 
 import * as React from "react";
 
@@ -32,6 +32,47 @@ const FeedbackData: FeedbackDataItem[] = [
 export const FeedbackFirstSection = () => {
   const [toggle, setToggle] = React.useState<boolean>(false);
   const [sendFeedback, setSendFeedback] = React.useState<boolean>(false);
+  const [scope, animate] = useAnimate();
+
+  const handleClick = async () => {
+   
+    
+     await animate(
+    ".feedback-button",
+    {
+      opacity: [0 , 0 ],
+      
+    },
+
+    {
+      duration: 0.8,
+      ease:"easeIn"
+    },
+  );
+
+
+    await animate(
+      ".animate-button",
+      
+      {
+        
+        opacity: [1],
+        width: [" 30px" , "40px"],
+        height:[  "30px","40px"],
+        radius: "1000px",
+        scale: [ 1 , 1.08 , 0.9]
+      },
+      {
+        duration: 0.3,
+        ease: "easeIn"
+      },
+    );
+  };
+
+  
+
+ 
+
   return (
     <div className="h-[653px] flex items-center justify-center mx-auto ">
       <div className="md:w-[300px] lg:w-[358px] h-[380px] bg-[#171717] rounded-3xl mx-auto ">
@@ -97,10 +138,10 @@ export const FeedbackFirstSection = () => {
                 );
               })}
               <div
-                className="flex gap-5 items-center h-18.75  cursor-pointer px-2"
+                className="flex gap-5 items-center h-18.75  cursor-pointer px-2 group"
                 onClick={() => setSendFeedback(true)}
               >
-                <button className="bg-[#FB432C] rounded-full size-11.5 text-white flex items-center justify-center hover:scale-105 cursor-pointer">
+                <button className="bg-[#FB432C] rounded-full size-11.5 text-white flex items-center justify-center group-hover:scale-105 cursor-pointer">
                   <Add />
                 </button>
                 <span className="text-[13.88px] font-semibold text-[#FD4E26] font-semibold">
@@ -112,14 +153,19 @@ export const FeedbackFirstSection = () => {
         )}
       </div>
 
-      <div className="">
-        <button className="bg-[#FB432C] rounded-[100px] w-[94px] h-11 text-white text-center">
+      <div className="" ref={scope}>
+       <div className=" relative w-23.5 " >
+         <Button className="w-23.5 feedback-button relative z-20 hover:scale-105 transition-all " onClick={handleClick}>
           Feedback
-        </button>
-        <h1 className="md:w-[200px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-[600] text-balance">
+        </Button>
+        <Button className="animate-button  absolute right-14 z-10 text-center opacity-0 scale-100 "><span className="flex items-center justify-center"><Check /></span></Button>
+
+       </div>
+
+        <h1 className="md:w-[200px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-semibold text-balance leading-tight">
           Better feedback at the right time.
         </h1>
-        <p className="text-[18px] text-[#5F6980] md:w-[300px] lg:w-[500px] ">
+        <p className="text-[18px] text-[#5F6980] md:w-75 lg:w-125 my-3">
           Campsite has been instrumental in keeping designers aware of each
           others' work-in-progress in a way that was previously slowing us down.
           It's also one of the only channels where.
@@ -143,7 +189,7 @@ type FeedbackProps = {
 
 export const FeedbackDiv = ({ photo, name, status }: FeedbackProps) => {
   return (
-    <div className="flex items-center justify-between border-b border-[#FFFFFF0D] h-[74px] hover:bg-[#FFFFFF0D] px-2">
+    <div className="flex items-center justify-between border-b border-[#FFFFFF0D] h-[74px] hover:bg-[#FFFFFF0D] px-2 cursor-pointer hover:scale-105 rounded-[20px] transition-all mb-0.5">
       {photo}
       <h1 className="text-white text-[13.88px]">{name}</h1>
       <p className="text-[#9D9FA1] text-[13px]">{status}</p>

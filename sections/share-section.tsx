@@ -1,14 +1,43 @@
-import { ApiCheck, Check, PlayButton } from "@/components/svg"
 
+"use client";
+import { ApiCheck, Check, PlayButton } from "@/components/svg"
+import { ArrowRight } from "@/components/svg/feedback";
+import { Button } from "@/components/ui/button"
+import { useWindowSize } from "@/hooks/window-size-detector"
+import { motion, useAnimate } from "motion/react";
+
+import * as React from 'react';
 
 export const ShareSection = () => {
+
+    const [scope , animate] = useAnimate();
+
+    const animateShareButton = () =>{
+        animate(".share-button" , 
+                {
+
+                    
+                    scale: [ 1 , 1.08 , 1.02],
+                    opacity: 1
+                },
+                
+            )
+    }
+   
+
+    const width = useWindowSize();
+    const isDesktop = width >= 1024;
     return (
         <div className="h-163 flex items-center mx-auto justify-center ">
-            <div className="">
-                <button className="bg-[#FB432C] rounded-[100px] w-[68px] h-11 text-white">
+            <div className="relative" ref={scope}>
+               
+              
+             
+                <Button className="share-button hover:scale-105 transition-all" onClick={animateShareButton}>
                     Share
-                </button>
-                <h1 className="md:w-[300px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-[600] text-balance">
+                </Button>
+              
+                <h1 className="md:w-[300px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-semibold text-balance leading-tight">
                     Share anything you’re  working on.
                 </h1>
                 <p className="text-[18px] text-[#5F6980] md:w-[300px] lg:w-[500px] ">
@@ -35,7 +64,7 @@ export const ShareSection = () => {
                 {/* lg svg */}
                 {/* <ApiCheck width={650} height={456} /> */}
                 {/* md svg */}
-                <ApiCheck width={400} height={456} />
+                <ApiCheck width={isDesktop ? 650 : 400} height={456} />
                 {/* <ApiCheck width={650} height={456} /> */}
             </div>
         </div>
