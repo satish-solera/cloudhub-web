@@ -1,4 +1,5 @@
 "use client";
+import { ApiCheck } from "@/components/svg";
 import {
   ArrowRight,
   AtTheRate,
@@ -13,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/util/cn";
 import { motion } from "motion/react";
 import * as React from "react";
+
 const PhotoData = [
   {
     photo: <Photo1 />,
