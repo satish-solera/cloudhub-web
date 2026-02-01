@@ -50,14 +50,16 @@ const CardData = [
 export const FeedbackSecondSection = () => {
   const [isView, setIsView] = React.useState<boolean>(true);
   return (
-    <div className="md:h-[1100px] lg:h-[900px] bg-[#FB432C] text-center pt-20">
-      <p className="text-[16px] text-white">Best time here</p>
-      <h1 className="font-[600] text-[54px] text-white">
+    <div className="md:h-[1100px] lg:h-[900px] bg-[#FB432C] text-center py-20 px-2 md:px-0">
+     <div className="ml-5">
+       <p className="text-[16px] text-white text-start md:text-center">Best time here</p>
+      <h1 className="font-semibold text-[34px] md:text-[54px] text-white text-start md:text-center">
         Better feedback at the right time.
       </h1>
+     </div>
 
       {/* first section */}
-      <motion.div className="bg-[#111111] h-[358px] md:w-[600px] lg:w-[1150px] mx-auto mt-20 rounded-[24px]">
+      <motion.div className="bg-[#111111] h-[365px] w-full lg:w-[1150px] mx-auto mt-20 rounded-[24px] px-10 md:px-0">
         <motion.div
           layout
           className="max-w-6xl lg:w-[1068px] bg-[#222222] h-70 mx-auto rounded-[20px]"
@@ -65,14 +67,14 @@ export const FeedbackSecondSection = () => {
           {isView ? (
             <>
               {/* first section */}
-              <div className="flex justify-between items-center mx-auto pt-10 px-10">
+              <div className="flex flex-col md:flex-row justify-between items-center mx-auto pt-10 px-10">
                 <div className="flex gap-5">
                   <CloudLogoFill />
-                  <div className="flex items-start flex-col">
+                  <div className="flex items-start flex-col text-start ">
                     <h1 className="text-[21.86px] font-medium text-white">
                       Cloudhub
                     </h1>
-                    <p className="text-[#737373] text-[19.43px]">
+                    <p className="text-[#737373] md:text-[19.43px]">
                       2m ago in Brand
                     </p>
                   </div>
@@ -87,8 +89,8 @@ export const FeedbackSecondSection = () => {
               </div>
 
               {/* second section */}
-              <div className="flex gap-36 mt-20 px-10 justify-between">
-                <div className="flex justify-between  gap-36 ">
+              <div className="flex flex-col md:flex-row gap-36 md:mt-20 px-10 justify-between">
+                <div className="flex flex-col md:flex-row justify-between  gap-20 md:gap-36 ">
                   <div className="relative">
                     {PhotoData.map((el, id) => {
                       return (
@@ -98,12 +100,14 @@ export const FeedbackSecondSection = () => {
                       );
                     })}
                   </div>
-                  <h1 className="text-[19.43px] text-white font-medium flex items-center my-2.5">
+                  <h1 className="text-[12px] md:text-[19.43px] text-white font-medium flex items-center my-2.5">
                     3 people are looking for feedback this week
                   </h1>
                 </div>
 
-                <ArrowRight />
+               <div className="hidden md:block">
+                 <ArrowRight />
+               </div>
               </div>
             </>
           ) : (
@@ -137,7 +141,7 @@ export const FeedbackSecondSection = () => {
       </motion.div>
 
       {/* second section with 3 card */}
-      <div className="grid grid-cols-3 mt-3 md:w-[620px] lg:w-[1150px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-3 gap-5 w-full lg:w-[1150px] mx-auto">
         {CardData.map((el, id) => {
           return (
             <InfoCard
@@ -173,7 +177,7 @@ export const InfoCard = ({
   paragraph: string;
 }) => {
   return (
-    <div className="bg-[#111111] md:w-[200px] lg:w-[376px] md:h-[300px] lg:h-[173px] rounded-[24px] ">
+    <div className="bg-[#111111] w-full lg:w-[376px] h-[190px] lg:h-[173px] rounded-[24px] ">
       <div className="flex flex-col items-start mt-5 mx-10">
         {logo}
         <h1 className="text-white text-[18px] ">{title}</h1>

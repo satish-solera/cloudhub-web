@@ -19,7 +19,7 @@ const TestinomialData = [
     },
 ]
 export const TestinomialSection = () => {
-  return <div className="grid grid-cols-1 md:grid-cols-2 w-full bg-[#F9FAFB] py-10">
+  return <div className="grid grid-cols-1 md:grid-cols-2  bg-[#F9FAFB] py-10 my-20 md:my-0 ">
 
 {
     TestinomialData.map((el , id)=>{
@@ -62,13 +62,13 @@ export const TestinomialCard = ({
         duration: 0.3,
         ease:"linear"
     }}
-    className="max-w-6xl h-fit py-20 mx-auto border border-neutral-200 px-8 rounded-[20px] ">
+    className="w-full md:max-w-xl h-fit py-20 mx-auto border border-neutral-200 px-8 md:rounded-[20px] ">
       <div className="size-10">{logo}</div>
      
-        <div className="w-129 h-45">
+        <div className="w-full h-full md:h-45">
         <p>{description}</p>
       </div>
-      <div className="">
+      <div className="my-10 md:my-0">
         <span>{nameOfAuthor}</span>
         <p>{subTitleOfAuthor}</p>
       </div>

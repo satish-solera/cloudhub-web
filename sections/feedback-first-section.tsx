@@ -74,8 +74,8 @@ export const FeedbackFirstSection = () => {
  
 
   return (
-    <div className="h-[653px] flex items-center justify-center mx-auto ">
-      <div className="md:w-[300px] lg:w-[358px] h-[380px] bg-[#171717] rounded-3xl mx-auto ">
+    <div className="h-[665px] md:h-[653px] flex flex-col md:flex-row items-center justify-center mx-auto mt-20 md:mt-0">
+      <div className="w-[300px] lg:w-[358px] h-[380px] bg-[#171717] rounded-3xl mx-auto  ">
         {/* <Feedback /> */}
 
         {sendFeedback ? (
@@ -153,7 +153,7 @@ export const FeedbackFirstSection = () => {
         )}
       </div>
 
-      <div className="" ref={scope}>
+      <div className=" mb-8 md:mt-0 ml-4" ref={scope}>
        <div className=" relative w-23.5 " >
          <Button className="w-23.5 feedback-button relative z-20 hover:scale-105 transition-all " onClick={handleClick}>
           Feedback
@@ -165,7 +165,7 @@ export const FeedbackFirstSection = () => {
         <h1 className="md:w-[200px] lg:w-[560px] md:text-[25px] lg:text-[54px]  font-semibold text-balance leading-tight">
           Better feedback at the right time.
         </h1>
-        <p className="text-[18px] text-[#5F6980] md:w-75 lg:w-125 my-3">
+        <p className="text-[16px] text-[#5F6980] md:w-75 lg:w-125 my-3">
           Campsite has been instrumental in keeping designers aware of each
           others' work-in-progress in a way that was previously slowing us down.
           It's also one of the only channels where.

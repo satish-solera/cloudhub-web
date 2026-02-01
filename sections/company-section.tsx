@@ -7,7 +7,8 @@ import { motion } from "motion/react";
 
 export const CompanySection = () =>{
     return(
-        <motion.div
+       <div className="overflow-hidden mx-auto hidden md:block ">
+         <motion.div
         initial={{
             x : ["-100%"]
         }}
@@ -20,12 +21,13 @@ export const CompanySection = () =>{
             repeat: Infinity,
             ease:"linear"
         }}
-        className="flex gap-32 h-31.75 items-center justify-center ">
+        className="flex gap-32  items-center justify-center  overflow-hidden ">
             <Patron/>
             <AirBNB />
             <Fiberplane />
             <Coinbase/>
             <HelpScout />
         </motion.div>
+       </div>
     )
 }

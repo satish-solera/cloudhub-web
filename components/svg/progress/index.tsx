@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 
 
 
-export const Progress1 = () =>(
-    <motion.svg width="509" height="291" viewBox="0 0 509 291" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const Progress1 = ({width = 509 , height = 291} : {width  ?: number , height ?: number}) =>(
+    <motion.svg width={width} height={height} viewBox="0 0 509 291" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_1_1615)">
 <rect x="36" y="40" width="437" height="319" rx="14" fill="white"/>
 </g>
@@ -266,10 +266,10 @@ cx="356" cy="230" r="5" fill="white"/>
 
 )
 
-export const Progress2 = ()=>(
+export const Progress2 = ({width = 547 , height = 250} : {width  ?: number , height ?: number})=>(
     <motion.svg 
     
-    width="547" height="250" viewBox="0 0 547 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+    width={width} height={height} viewBox="0 0 547 250" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_1_1642)">
 <rect x="36" y="40" width="475" height="243" rx="16.5174" fill="white"/>
 </g>

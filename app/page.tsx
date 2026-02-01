@@ -12,8 +12,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero/>
-      <div className="mt-60 lg:mt-125"></div>
+      <div className="mt-80 lg:mt-125"></div>
       <CompanySection />
+      
       <ShareSection/>
       <FeedbackFirstSection/>
       <FeedbackSecondSection/>

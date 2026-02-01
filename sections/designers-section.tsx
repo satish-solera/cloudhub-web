@@ -34,12 +34,12 @@ const DesignerLogoData = [
 export const DesignerSection = () => {
     return (
         <div className="mb-20 mx-5">
-            <h1 className="text-[54px] text-center my-10">
+            <h1 className="text-[34px] md:text-[54px] text-center my-10">
                 Loved By Designers At
             </h1>
 
       
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mx-auto">
             {
                 DesignerLogoData.map((el, id) => {
                     return (
@@ -70,7 +70,7 @@ export const DesignerLogo = ({ logo }: { logo: React.ReactNode }) => {
         }}
 
         
-        className="w-74 h-36 bg-[#F9FAFB] flex items-center justify-center p-1">
+        className="w-74 h-36 bg-[#F9FAFB] flex items-center justify-center p-1 mx-auto">
             {
                 logo
             }
